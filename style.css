@@ -1,8 +1,3 @@
-/* ==========================================================================
-   AURORA NYHETER - SOPHISTICATED SCANDINAVIAN LIGHT THEME (2026)
-   ========================================================================== */
-
-/* RESET BÁSICO Y TIPOGRAFÍA */
 * {
     margin: 0;
     padding: 0;
@@ -11,19 +6,18 @@
 }
 
 body {
-    background-color: #f1f5f9; /* Gris seda suave, elimina el blanco frío y descansa la vista */
-    color: #1e293b;            /* Texto principal casi negro */
+    background-color: #f1f5f9; 
+    color: #1e293b;            
     line-height: 1.6;
 }
 
-/* NAVEGACIÓN (Estilo prensa tradicional) */
 nav {
     display: flex;
     flex-direction: column; 
     align-items: center;
     padding: 25px 5px 15px 5px;
-    background-color: #ffffff; /* La barra superior se mantiene blanca para contrastar */
-    border-bottom: 3px solid #004b87; /* Azul oficial sueco */
+    background-color: #ffffff; 
+    border-bottom: 3px solid #004b87; 
 }
 
 .logo {
@@ -56,14 +50,13 @@ nav {
 
 .nav-links a:hover, .nav-links a.active {
     color: #004b87;
-    border-bottom: 2px solid #ffcd00; /* Detalle amarillo sueco */
+    border-bottom: 2px solid #ffcd00; 
 }
 
-/* HERO SECTION (Titular de portada) */
 .hero {
     text-align: center;
     padding: 50px 20px;
-    background-color: #ffffff; /* Fondo blanco para destacar el anuncio principal */
+    background-color: #ffffff; 
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -81,7 +74,6 @@ nav {
     font-style: italic;
 }
 
-/* GRID DE NOTICIAS */
 #news-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -91,15 +83,14 @@ nav {
     margin: 0 auto;
 }
 
-/* TARJETAS DE NOTICIAS */
 .news-card {
-    background-color: #ffffff; /* Las tarjetas blancas resaltan precioso sobre el fondo gris suave */
-    border-radius: 4px;        /* Un toque apenas sutil de redondeado para suavizar */
+    background-color: #ffffff; 
+    border-radius: 4px;        
     overflow: hidden;
     display: flex;
     flex-direction: column;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02); /* Sombra casi invisible pero elegante */
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02); 
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -141,7 +132,6 @@ nav {
     overflow: hidden;
 }
 
-/* ENLACE "LÄS MER" */
 .read-more {
     margin-top: auto;
     color: #004b87;
@@ -156,7 +146,6 @@ nav {
     text-decoration: underline;
 }
 
-/* FOOTER */
 footer {
     background-color: #0f172a; 
     color: #94a3b8;
