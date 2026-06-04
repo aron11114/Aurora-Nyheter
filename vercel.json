@@ -1,1 +1,8 @@
-
+{
+  "rewrites": [
+    {
+      "source": "/api/news/:match*",
+      "destination": "https://gnews.io/api/v4/:match*"
+    }
+  ]
+}
