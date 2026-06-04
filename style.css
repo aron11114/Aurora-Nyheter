@@ -1,0 +1,163 @@
+/* ==========================================================================
+   AURORA NYHETER - SOPHISTICATED SCANDINAVIAN LIGHT THEME (2026)
+   ========================================================================== */
+
+/* RESET BÁSICO Y TIPOGRAFÍA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9; /* Gris seda suave, elimina el blanco frío y descansa la vista */
+    color: #1e293b;            /* Texto principal casi negro */
+    line-height: 1.6;
+}
+
+/* NAVEGACIÓN (Estilo prensa tradicional) */
+nav {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    padding: 25px 5px 15px 5px;
+    background-color: #ffffff; /* La barra superior se mantiene blanca para contrastar */
+    border-bottom: 3px solid #004b87; /* Azul oficial sueco */
+}
+
+.logo {
+    color: #004b87;
+    font-size: 2.2rem;
+    font-family: "Georgia", Times, serif; 
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 4px;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #004b87;
+    border-bottom: 2px solid #ffcd00; /* Detalle amarillo sueco */
+}
+
+/* HERO SECTION (Titular de portada) */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff; /* Fondo blanco para destacar el anuncio principal */
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-family: "Georgia", Times, serif;
+    color: #0f172a;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero p {
+    color: #64748b;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* GRID DE NOTICIAS */
+#news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* TARJETAS DE NOTICIAS */
+.news-card {
+    background-color: #ffffff; /* Las tarjetas blancas resaltan precioso sobre el fondo gris suave */
+    border-radius: 4px;        /* Un toque apenas sutil de redondeado para suavizar */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02); /* Sombra casi invisible pero elegante */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+}
+
+.news-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-content h3 {
+    font-size: 1.3rem;
+    font-family: "Georgia", Times, serif; 
+    color: #0f172a;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.news-content p {
+    color: #475569;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ENLACE "LÄS MER" */
+.read-more {
+    margin-top: auto;
+    color: #004b87;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.read-more:hover {
+    color: #ffcd00;
+    text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+    background-color: #0f172a; 
+    color: #94a3b8;
+}
