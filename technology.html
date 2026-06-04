@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aurora Nyheter - Teknik</title>
+    <!-- Importación de tipografía para el diseño premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <h1 class="logo">Aurora Nyheter</h1>
-        <div class="nav-links">
-            <a href="index.html">Start</a>
-            <a href="world.html">Världen</a>
-            <a href="technology.html" class="active">Teknik</a>
-            <a href="gaming.html">Spel</a>
-            <a href="entertainment.html">Nöje</a>
-            <a href="curiosities.html">Kuriosa</a>
-            <a href="sports.html">Sport</a>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Aurora Nyheter</a>
+            <div class="nav-links">
+                <a href="index.html">Start</a>
+                <a href="world.html">Världen</a>
+                <a href="technology.html" class="active">Teknik</a>
+                <a href="gaming.html">Spel</a>
+                <a href="entertainment.html">Nöje</a>
+                <a href="curiosities.html">Kuriosa</a>
+                <a href="sports.html">Sport</a>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Senaste inom teknik och innovation</h1>
+        <h2>Senaste inom teknik och innovation</h2>
         <p>Upptäck framtidens prylar, mjukvara och digitala trender.</p>
     </header>
 
@@ -30,17 +34,22 @@
         <!-- Las noticias se cargarán aquí automáticamente -->
     </main>
 
-    <footer style="background-color: #0f172a; color: #94a3b8; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.85rem; border-top: 1px solid #1e293b;">
-        <div style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+    <!-- Footer adaptado al estilo Nordic Dark -->
+    <footer style="background-color: #05070b; color: #64748b; text-align: center; padding: 40px 20px; margin-top: 80px; font-size: 0.85rem; border-top: 1px solid #1e293b;">
+        <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
             <p style="margin-bottom: 10px;">
-                <strong>Friskrivningsklausul:</strong> Denna webbplats är ett informationsprojekt. All information och nyheter samlas automatiskt in via det offentliga API:et GNews.
+                <strong style="color: #cbd5e1;">Friskrivningsklausul:</strong> Denna webbplats är ett informationsprojekt. All information och nyheter samlas automatiskt in via det offentliga API:et GNews. Aurora Nyheter lagrar inte, redigerar inte och äger inte de visade artiklarna, vilka uteslutande tillhör sina respektive medieföretag.
             </p>
-            <p style="margin-top: 10px; font-size: 0.75rem; color: #6b7280;">
+            <p style="margin-top: 15px; font-size: 0.75rem; color: #475569;">
                 © 2026 Aurora Nyheter. Alla rättigheter förbehållna de ursprungliga författarna.
             </p>
         </div>
     </footer>
 
+    <!-- 1. Script de lógica de la aplicación -->
     <script src="script.js"></script>
+
+    <!-- 2. Banner Publicitario In-Page Push -->
+    <script>(function(s){s.dataset.zone='11098653',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 </body>
 </html>
