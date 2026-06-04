@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         category = 'general'; 
     }
 
-    // 2. FUNCIÓN PRINCIPAL DE CONSULTA (Con tu lógica de filtrado limpia-deportes)
+    // 2. FUNCIÓN PRINCIPAL DE CONSULTA (Con soporte de inglés para Gaming)
     async function fetchNews() {
         if (!newsContainer) return;
         
@@ -36,11 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let targetUrl = '';
         
         if (isGaming) {
-            // Tu excelente idea aplicada: Quitamos "spel" suelto y usamos conceptos 100% gamer.
-            // "video spel" y "tv-spel" fuerzan el contexto correcto en las búsquedas en sueco.
-            const searchQuery = encodeURIComponent('(gaming OR games OR "video spel" OR "tv-spel" OR playstation OR nintendo OR xbox)');
-            targetUrl = `/api/news/search?q=${searchQuery}&lang=sv&token=${API_KEY}`;
+            // Al quitar "&lang=sv", GNews buscará los mejores artículos globales (mayormente en inglés)
+            // Usamos términos universales exactos de la industria de los videojuegos
+            const searchQuery = encodeURIComponent('(gaming OR "video games" OR "xbox" OR "playstation" OR "nintendo switch" OR "cyberpunk" OR "gta 6" OR "e-sports")');
+            targetUrl = `/api/news/search?q=${searchQuery}&token=${API_KEY}`;
         } else {
+            // El resto de las categorías se mantienen estrictamente en sueco y de la región de Suecia
             targetUrl = `/api/news/top-headlines?category=${category}&lang=sv&country=se&token=${API_KEY}`;
         }
 
