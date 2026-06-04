@@ -35,9 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let targetUrl = '';
         
         if (isGaming) {
-            // SOLUCIÓN: Si falla la búsqueda estricta en Suecia, abrimos una búsqueda más amplia 
-            // que cubra artículos de tecnología, software y cultura gamer en sueco.
-            const searchQuery = encodeURIComponent('gaming OR spel OR nintendo OR playstation OR xbox OR "tv-spel"');
+            // Filtro corregido: quitamos "spel" y forzamos "video spel", "tv-spel", consolas y marcas de la industria.
+            const searchQuery = encodeURIComponent('"video spel" OR "tv-spel" OR gaming OR e-sport OR nintendo OR playstation OR xbox');
             targetUrl = `/api/news/search?q=${searchQuery}&lang=sv&token=${API_KEY}`;
         } else {
             targetUrl = `/api/news/top-headlines?category=${category}&lang=sv&country=se&token=${API_KEY}`;
@@ -52,16 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("Error al cargar noticias:", error);
             
-            // Alternativa de rescate automática: Si la búsqueda personalizada de gaming da error, 
-            // cargamos la categoría 'technology' general para que la página de Spel no se quede en blanco
+            // Fallback de seguridad en caso de que falle la búsqueda personalizada
             if (isGaming) {
-                console.log("Intentando cargar sección alternativa de tecnología para gaming...");
                 try {
                     const fallbackResponse = await fetch(`/api/news/top-headlines?category=technology&lang=sv&country=se&token=${API_KEY}`);
                     if (fallbackResponse.ok) {
                         const fallbackData = await fallbackResponse.json();
                         displayNews(fallbackData.articles);
-                        return; // Salimos exitosamente
+                        return;
                     }
                 } catch (fallbackError) {
                     console.error("Error en el fallback:", fallbackError);
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. RENDERIZADOR DE TARJETAS EN EL CONTENEDOR
+    // 3. RENDERIZADOR DE TARJETAS
     function displayNews(articles) {
         if (!newsContainer) return;
         newsContainer.innerHTML = '';
