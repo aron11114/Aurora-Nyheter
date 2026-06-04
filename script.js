@@ -26,17 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
         category = 'general'; 
     }
 
-    // 2. FUNCIÓN PRINCIPAL DE CONSULTA
+    // 2. FUNCIÓN PRINCIPAL DE CONSULTA (Con tu lógica de filtrado limpia-deportes)
     async function fetchNews() {
         if (!newsContainer) return;
         
+        // Mensaje de carga elegante en sueco
         newsContainer.innerHTML = '<p style="text-align:center; color: #475569; grid-column: 1/-1; font-style: italic;">Laddar nyheter...</p>';
 
         let targetUrl = '';
         
         if (isGaming) {
-            // Filtro corregido: quitamos "spel" y forzamos "video spel", "tv-spel", consolas y marcas de la industria.
-            const searchQuery = encodeURIComponent('"video spel" OR "tv-spel" OR gaming OR e-sport OR nintendo OR playstation OR xbox');
+            // Tu excelente idea aplicada: Quitamos "spel" suelto y usamos conceptos 100% gamer.
+            // "video spel" y "tv-spel" fuerzan el contexto correcto en las búsquedas en sueco.
+            const searchQuery = encodeURIComponent('(gaming OR games OR "video spel" OR "tv-spel" OR playstation OR nintendo OR xbox)');
             targetUrl = `/api/news/search?q=${searchQuery}&lang=sv&token=${API_KEY}`;
         } else {
             targetUrl = `/api/news/top-headlines?category=${category}&lang=sv&country=se&token=${API_KEY}`;
@@ -50,26 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
             displayNews(data.articles);
         } catch (error) {
             console.error("Error al cargar noticias:", error);
-            
-            // Fallback de seguridad en caso de que falle la búsqueda personalizada
-            if (isGaming) {
-                try {
-                    const fallbackResponse = await fetch(`/api/news/top-headlines?category=technology&lang=sv&country=se&token=${API_KEY}`);
-                    if (fallbackResponse.ok) {
-                        const fallbackData = await fallbackResponse.json();
-                        displayNews(fallbackData.articles);
-                        return;
-                    }
-                } catch (fallbackError) {
-                    console.error("Error en el fallback:", fallbackError);
-                }
-            }
-            
             newsContainer.innerHTML = '<p style="color: #b91c1c; text-align: center; grid-column: 1/-1; font-weight: 600;">⚠️ Ett fel uppstod vid laddning av nyheter. Kontrollera din anslutning eller försök igen senare.</p>';
         }
     }
 
-    // 3. RENDERIZADOR DE TARJETAS
+    // 3. RENDERIZADOR DE TARJETAS EN EL CONTENEDOR
     function displayNews(articles) {
         if (!newsContainer) return;
         newsContainer.innerHTML = '';
