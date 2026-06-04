@@ -4,14 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     
     // 1. DETECTOR DE CATEGORÍAS ROBUSTO
-    // Extrae solo el nombre del archivo final (ej. "world.html") sin importar las carpetas previas
     const path = window.location.pathname.toLowerCase();
     const filename = path.substring(path.lastIndexOf('/') + 1);
     
     let category = 'general';
     let isGaming = false; 
     
-    // Evaluamos directamente según el nombre del archivo actual
     if (filename.includes('world')) {
         category = 'world';
     } else if (filename.includes('technology')) {
@@ -21,23 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (filename.includes('entertainment')) {
         category = 'entertainment';
     } else if (filename.includes('curiosities')) {
-        category = 'science'; // GNews agrupa curiosidades/ciencia bajo 'science'
+        category = 'science'; 
     } else if (filename.includes('gaming')) {
         isGaming = true; 
     } else {
-        category = 'general'; // Para index.html o la raíz principal
+        category = 'general'; 
     }
 
-    // 2. FUNCIÓN PRINCIPAL DE CONSULTA (Mantiene compatibilidad con Vercel)
+    // 2. FUNCIÓN PRINCIPAL DE CONSULTA
     async function fetchNews() {
         if (!newsContainer) return;
         
-        // Mensaje de carga en sueco elegante
         newsContainer.innerHTML = '<p style="text-align:center; color: #475569; grid-column: 1/-1; font-style: italic;">Laddar nyheter...</p>';
 
         let targetUrl = '';
         
-        // Estructura de rutas relativas configurada para el proxy de vercel.json
         if (isGaming) {
             targetUrl = `/api/news/search?q=(gaming OR tv-spel)&lang=sv&country=se&token=${API_KEY}`;
         } else {
@@ -84,6 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ejecutar la carga automática al entrar a la página
     fetchNews();
 });
