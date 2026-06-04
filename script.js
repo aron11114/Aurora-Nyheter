@@ -30,12 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchNews() {
         if (!newsContainer) return;
         
+        // Mensaje de carga elegante en sueco
         newsContainer.innerHTML = '<p style="text-align:center; color: #475569; grid-column: 1/-1; font-style: italic;">Laddar nyheter...</p>';
 
         let targetUrl = '';
         
         if (isGaming) {
-            targetUrl = `/api/news/search?q=(gaming OR tv-spel)&lang=sv&country=se&token=${API_KEY}`;
+            // Codificamos la consulta de forma segura para evitar que la URL se rompa
+            const searchQuery = encodeURIComponent('(gaming OR "tv-spel" OR e-sport)');
+            targetUrl = `/api/news/search?q=${searchQuery}&lang=sv&country=se&token=${API_KEY}`;
         } else {
             targetUrl = `/api/news/top-headlines?category=${category}&lang=sv&country=se&token=${API_KEY}`;
         }
